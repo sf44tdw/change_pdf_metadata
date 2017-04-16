@@ -38,7 +38,7 @@ do
 
      FILES=`ls -v *.{jpg,png}`
 
-     DEST="\"${TARGET}.pdf\""
+     DEST="${TARGET}.pdf"
      
      EXEC="${COMMAND} ${FILES} ${DEST}"
 

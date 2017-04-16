@@ -1,6 +1,7 @@
 #pdfファイルの作成を行ったアプリケーションの情報(windowsで言えば、pdfファイルのプロパティのpdfタブのアプリケーション欄、作成者欄等)を書き換える。
 #他ソフトで作ったpdfファイルを、scananap organizerの管理下に置くためのもの。
-#
+# gem install mini_exiftool
+
 
 #入手元↓
 #http://d.hatena.ne.jp/kenkitii/20120424/p1
@@ -12,9 +13,13 @@ require 'mini_exiftool'
  creatortool = "PFU ScanSnap Manager 4.0.10"
  producer = "Adobe PDF Scan Library 2.1"
 
-#pdfファイルの置き場。
- path_to_pdf = "./target/*.pdf" 
+#ホーム
+ home_dir=ENV["HOME"]
 
+#pdfファイルの置き場。
+ path_to_pdf = home_dir+"/target/*.pdf" 
+
+ puts path_to_pdf
 
 Dir.glob(path_to_pdf) do |f|
 
