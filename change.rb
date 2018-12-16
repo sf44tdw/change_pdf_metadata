@@ -17,10 +17,14 @@ require 'mini_exiftool'
  home_dir=ENV["HOME"]
 
 #pdfファイルの置き場。
- path_to_pdf = home_dir+"/target/*.pdf" 
+ path_to_workspace = home_dir+"/target"
+
+ path_to_pdf = path_to_workspace+"/*.pdf" 
 
  puts path_to_pdf
 
+ FileUtils.mkdir_p(path_to_workspace) unless FileTest.exist?(path_to_workspace)
+ 
 Dir.glob(path_to_pdf) do |f|
 
 	target = MiniExiftool.new(f)
